@@ -138,43 +138,34 @@ public class Ejecutor {
 
         boolean repeat  = false;
         while(!repeat){
-            System.out.println("+============================================+");
             System.out.println("|             SISTEMA DE PRESTAMO            |");
-            System.out.println("|--------------------------------------------|");
             System.out.println("|   1   |  Prestamo Automovil                |");
             System.out.println("|   2   |  Prestamo Educativo                |");
             System.out.println("|   3   |  Salir y Mostar                    |");
-            System.out.println("+============================================+");
             System.out.print("- Ingrese el numero de prestamo deseado: ");
             byte op = sc.nextByte();
 
             switch (op){
                 case 1:
-                    System.out.println("--------------------------------------");
                     System.out.println("| Postulacion para Prestamo Automovil |");
-                    System.out.println("--------------------------------------");
                     PrestamoAutomovil prestamoTipo1 = crearObjeto_PrestamoAutomovil(sc);
                     prestamoTipo1.setCiudadPrestamo();
                     prestamoTipo1.calcularValorMensualPagoAutomovil();
                     lista_prestamos.add(prestamoTipo1);
                     break;
                 case 2:
-                    System.out.println("--------------------------------------");
                     System.out.println("| Postulacion para Prestamo Educativo |");
-                    System.out.println("--------------------------------------");
                     PrestamoEducativo prestamoTipo2 = crearObjeto_PrestamoEducativo(sc);
                     prestamoTipo2.setCiudadPrestamo();
                     prestamoTipo2.calcularValorMensualPago();
                     lista_prestamos.add(prestamoTipo2);
                     break;
                 case 3:
-                    System.out.println("programa terminado...");
+                    System.out.println("Programa terminado...");
                     //recorro la lista
                     int n=1;
                     for(Prestamo p : lista_prestamos) {
-                        System.out.println("--------------------------------------");
                         System.out.println("|           PRESTAMO "+n+":             |");
-                        System.out.println("--------------------------------------");
                         System.out.println(p.toString() );
                         n++;
                     }
@@ -186,7 +177,6 @@ public class Ejecutor {
                     System.out.println("Opcion No Valida");
                     break;
             }
-
         }
     }
 
@@ -258,5 +248,4 @@ public class Ejecutor {
         InstitucionEducativa centroEducativo = new  InstitucionEducativa (nombreC,siglasC);
         return new PrestamoEducativo(nivelEstudio, centroEducativo, valorCarrera, beneficiario, meses, ciudad);
     }
-
 }
